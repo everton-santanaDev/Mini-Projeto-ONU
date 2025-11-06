@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bem vindo - Meu Portfólio </title>
+  <meta name="description" content="Portfólio profissional de Everton Ribeiro — Aspirante a Analista de Sistemas." />
+  <meta name="author" content="Everton Ribeiro" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0a0f1a;
+      --card: #111827;
+      --muted: #cbd5e1;
+      --accent: #6366f1;
+      --accent2: #22d3ee;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0,0,0,0.4);
+      --font: 'Poppins', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: #f1f5f9;
+      font-family: var(--font);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 10%;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo div:first-child {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: white;
+      font-weight: 700;
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      font-size: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    nav a {
+      margin: 0 12px;
+      color: var(--muted);
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent2);
+      text-shadow: 0 0 6px var(--accent2);
+    }
+
+    nav a.cta {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: white;
+      padding: 8px 14px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(99,102,241,0.6);
+    }
+
+    main { padding: 60px 10%; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h1 {
+      font-size: 32px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 14px;
+    }
+
+    .hero-card .lead {
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .tag {
+      background: linear-gradient(90deg, var(--accent));
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 0 8px rgba(58, 60, 153, 0.6);
+      transition: 0.3s;
+    }
+
+    .tag:hover { transform: scale(1.05); }
+
+    #resumo {
+      margin-top: 22px;
+      padding: 18px;
+      background: rgba(255,255,255,0.05);
+      border-left: 4px solid var(--accent2);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    #resumo h3 { margin: 0 0 6px; color: var(--accent2); }
+
+    #resumo p {
+      color: var(--muted);
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .perfil {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .perfil img {
+      width: 300%;
+      max-width: 300px;
+      height: 400px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+      
+    }
+
+    .section {
+      margin-top: 80px;
+    }
+
+    .section h2 {
+      font-size: 26px;
+      color: var(--accent2);
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px rgba(34,211,238,0.5);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .projetos {
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .projetos:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(34,211,238,0.2);
+    }
+
+    .projetos img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .tag.secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(34,211,238,0.2));
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    form {
+      flex: 1;
+      min-width: 260px;
+      background: rgba(255,255,255,0.05);
+      padding: 18px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    input, textarea {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    button {
+      margin-top: 6px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    button:hover { transform: scale(1.05); }
+
+    footer {
+      text-align: center;
+      margin: 60px 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 780px) {
+      .hero { grid-template-columns: 1fr; }
+      header { flex-direction: column; gap: 10px; }
+    }
+
+    /* Botão flutuante para voltar ao topo */
+    #toTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent2);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 14px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    #toTop:hover { transform: scale(1.1); background: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div>E</div>
+      <div>
+        <strong>Everton Ribeiro</strong><br>
+        <span style="font-size:13px;color:var(--muted)">Aspirante a Analista de Dados</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#projetos">Projetos</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contato" class="cta"><i class="fa-solid fa-envelope"></i> Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Olá! Sou Everton Ribeiro</h1>
+        <p class="lead">Foco no aprendizado e desenvolvimento profissional, apaixonado por tecnologia e programação <p></p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#resumo" class="tag">Resumo profissional</a>
+          <a href="#projetos" class="tag">Ver projetos</a>
+          <a href="#contato" class="tag">Vamos conversar</a>
+        </div>
+
+        <section id="resumo">
+          <h3>Resumo profissional</h3>
+          <p>Sou Everton Ribeiro de Santana, 20 anos, estudante de Análise e Desenvolvimento de Sistemas/Analise de Dados. Estudo desenvolvimento em C, Python, C++, C#, Javascript, CSS e HTML, 
+            automação de tarefas e interfaces web. Tenho como pontos fortes a análise crítica de dados, otimização de algoritmos e criação de ferramentas que auxiliam na tomada de decisões. 
+            Busco oportunidades para crescer tecnicamente e gerar impacto real através da tecnologia.</p>
+        </section>
+      </div>
+
+      <aside class="perfil">
+        <img src="css/Foto perfil.png" alt="Foto de Everton Ribeiro">
+        <div>
+          <div style="font-weight:700">Everton Ribeiro</div>
+          <div style="font-size:14px;color:var(--muted)">Cotia-SP — Disponível para contato</div>
+          <div style="margin-top:8px;font-size:14px;color:var(--muted)">👨‍💻🇧🇷 | evertonribeirodesantana2018@gmail.com</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projetos" class="section">
+      <h2>Projetos Recentes</h2>
+      <div class="grid">
+        <article class="projetos">
+          <img src="https://i.pinimg.com/736x/13/9b/30/139b30df26ac88a10545972e9fcac502.jpg" alt="Sistema de Pedágio">
+          <h3>Projeto 1 — Sistema de Pedágio</h3>
+          <p>Aplicação em C para controle de fluxo e cálculo automatizado de tarifas.</p>
+          <div class="tags"><span class="tag secondary">C</span><span class="tag secondary">Console App</span></div>
+        </article>
+        <article class="projetos">
+          <img src="https://i.pinimg.com/736x/77/9b/3c/779b3cc5670af0f8aaeaf8197362387a.jpg" alt="Página Responsiva">
+          <h3>Projeto 2 — Página Responsiva</h3>
+          <p>Landing page moderna e adaptável desenvolvida com HTML5 e CSS3.</p>
+          <div class="tags"><span class="tag secondary">HTML</span><span class="tag secondary">CSS</span></div>
+        </article>
+        <article class="projetos">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800" alt="Análise de preços">
+          <h3>Projeto 3 — Análise de Preços</h3>
+          <p>Ferramenta em Phyton para comparar preços mensais e detectar variações abusivas.</p>
+          <div class="tags"><span class="tag secondary">Phyton</span><span class="tag secondary">Análise</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="habilidades" class="section">
+      <h2>Habilidades</h2>
+      <div class="skills">
+        <div class="skill">C — Programação Estruturada</div>
+        <div class="skill">HTML & CSS — Layout Responsivo</div>
+        <div class="skill">Phyton - Desenvolvimento</div>
+        <div class="skill">Análise de Dados — Excel / Scripts</div>
+        <div class="skill">Sistemas - SQL / PowerBI</div>
+
+      </div>
+    </section>
+
+    <section id="contato" class="section">
+      <h2>Contato</h2>
+      <div class="contact">
+        <form onsubmit="event.preventDefault();alert('Mensagem enviada com sucesso!');">
+          <label>Nome</label>
+          <input placeholder="Seu nome" required />
+          <label>Email</label>
+          <input type="email" placeholder="seu@email.com" required />
+          <label>Mensagem</label>
+          <textarea rows="4" placeholder="Escreva sua mensagem"></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+
+        <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:12px">
+          <div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:var(--radius);">📍 Cotia-SP</div>
+          <div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:var(--radius);">👨‍💻 evertonribeirodesantana2018@gmail.com</div>
+          <div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:var(--radius);">
+            🔗 
+            <a href="https://www.linkedin.com/in/everton-santana-5609bb230/" target="_blank">LinkedIn</a> • 
+            <a href="https://github.com/everton-santanaDev" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feito por Everton Ribeiro — © <span id="year"></span></p>
+  </footer>
+
+  <button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

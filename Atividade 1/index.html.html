@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONG Esperança</title>
+<meta name="description" content="Plataforma profissional da ONG Esperança — gestão de projetos sociais, voluntariado e doações.">
+<meta name="keywords" content="ONG, solidariedade, voluntariado, doações, projetos sociais">
+<meta name="author" content="ONG Esperança">
+
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: #1e7d1e;
+  color: #fff;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-container img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin-right: 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0%;
+  background: #fff;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+  color: #fff;
+  padding: 7rem 2rem;
+  text-align: center;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.15);
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+
+/* ===== SEÇÕES ===== */
+main {
+  padding: 2rem;
+  max-width: 1300px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 3rem;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+section h2 {
+  margin-bottom: 1rem;
+  color: #1e7d1e;
+  border-left: 6px solid #1e7d1e;
+  padding-left: 10px;
+  font-size: 1.8rem;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #f0f9f1;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.card h3 {
+  color: #1e7d1e;
+  margin-bottom: 0.4rem;
+}
+
+/* ===== FORMULÁRIOS ===== */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+form input,
+form textarea,
+form select,
+form button {
+  margin-bottom: 1rem;
+  padding: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #1e7d1e;
+  box-shadow: 0 0 4px rgba(30, 125, 30, 0.4);
+}
+
+form button {
+  background: #1e7d1e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+form button:hover {
+  background: #166016;
+  transform: scale(1.02);
+}
+
+/* ===== TABELAS ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  padding: 0.9rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background: #1e7d1e;
+  color: white;
+  font-weight: 600;
+}
+
+/* ===== GALERIA ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #1e7d1e;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 0.95rem;
+  margin-top: 3rem;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  header {
+    text-align: center;
+  }
+  nav {
+    margin-top: 1rem;
+  }
+  nav a {
+    display: inline-block;
+    margin: 0.4rem;
+  }
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo-container">
+    <img src="https://s3-sa-east-1.amazonaws.com/projetos-artes/fullsize%2F2011%2F10%2F29%2F15%2FWDL-Logo-8220_6769_041644115_1991191473.jpg" alt="Logo ONG">
+    <h1>ONG Esperança</h1>
+  </div>
+  <nav>
+    <a href="#home">Início</a>
+    <a href="#institutional">Institucional</a>
+    <a href="#projects">Projetos</a>
+    <a href="#volunteers">Voluntariado</a>
+    <a href="#donations">Doações</a>
+    <a href="#gallery">Galeria</a>
+    <a href="#reports">Relatórios</a>
+    <a href="#contact">Contato</a>
+  </nav>
+</header>
+
+<main id="app">
+  <!-- O conteúdo será carregado aqui dinamicamente -->
+</main>
+
+<footer>
+  <p>&copy; 2025 ONG Esperança — Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// ===== TEMPLATES =====
+const templates = {
+  home: 
+    <div class="hero">
+      <h2>Transformando Vidas com Solidariedade</h2>
+      <p>Juntos, podemos mudar o futuro de muitas famílias.</p>
+    </div>
+  
+  institutional: 
+    <section>
+      <h2>Quem Somos</h2>
+      <p>A ONG Esperança atua há mais de 10 anos promovendo a inclusão social, educação e cidadania em comunidades carentes.</p>
+      <br>
+      <img src="https://i.pinimg.com/736x/40/69/97/406997260fa55ad12f8363a6a19d5146.jpg" alt="Equipe da ONG">
+    </section>
+  
+  projects: 
+    <section>
+      <h2>Projetos em Andamento</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="https://i.pinimg.com/1200x/3a/18/be/3a18be6d63d4261bd7568bb04cbd605c.jpg" alt="Educação">
+          <h3>Projeto Educação</h3>
+          <p>Reforço escolar e inclusão digital para jovens.</p>
+        </div>
+        <div class="card">
+          <img src="https://i.pinimg.com/736x/3f/65/70/3f6570ad66e8964d4d066e88de00a984.jpg" alt="Saúde Comunitária">
+          <h3>Projeto Saúde Comunitária</h3>
+          <p>Campanhas de vacinação e atendimento básico gratuito.</p>
+        </div>
+        <div class="card">
+          <img src="https://i.pinimg.com/736x/ff/1b/ba/ff1bba3d1735e659b219a15a42b51c37.jpg" alt="Meio Ambiente">
+          <h3>Projeto Verde Vivo</h3>
+          <p>Reflorestamento e conscientização ambiental.</p>
+        </div>
+      </div>
+    </section>
+  
+  volunteers: 
+    <section>
+      <h2>Seja um Voluntário</h2>
+      <form id="volunteerForm">
+        <label for="vName">Nome Completo:</label>
+        <input type="text" id="vName" required>
+        <label for="vCpf">CPF:</label>
+        <input type="text" id="vCpf" placeholder="000.000.000-00" required>
+        <label for="vEmail">Email:</label>
+        <input type="email" id="vEmail" required>
+        <label for="vArea">Área de Interesse:</label>
+        <select id="vArea" required>
+          <option value="">Selecione</option>
+          <option value="educacao">Educação</option>
+          <option value="saude">Saúde</option>
+          <option value="meio-ambiente">Meio Ambiente</option>
+        </select>
+        <button type="submit">Cadastrar</button>
+      </form>
+      <p id="volunteerMessage"></p>
+    </section>
+  
+  donations: 
+    <section>
+      <h2>Faça uma Doação</h2>
+      <form id="donationForm">
+        <label for="dName">Nome:</label>
+        <input type="text" id="dName" required>
+        <label for="dCpf">CPF:</label>
+        <input type="text" id="dCpf" placeholder="000.000.000-00" required>
+        <label for="dEmail">Email:</label>
+        <input type="email" id="dEmail" required>
+        <label for="dAmount">Valor (R$):</label>
+        <input type="number" id="dAmount" min="1" required>
+        <button type="submit">Doar</button>
+      </form>
+      <p id="donationMessage"></p>
+    </section>
+  
+  gallery: 
+    <section>
+      <h2>Galeria de Fotos</h2>
+      <div class="gallery">
+        <img src="https://i.pinimg.com/1200x/90/c5/78/90c578a2706a05e5da73e4386d62b6a3.jpg" alt="Evento Social">
+        <img src="https://i.pinimg.com/736x/70/4c/53/704c53f486106768fcb8174070aa2a02.jpg" alt="Crianças aprendendo">
+        <img src="https://i.pinimg.com/736x/99/b6/5a/99b65a25f2f4af63cd1b77e206c1ce8d.jpg" alt="Equipe Voluntária">
+        <img src="https://i.pinimg.com/1200x/34/3b/02/343b02bf0a414938278ab1f600dcf932.jpg" alt="Plantio de árvores">
+      </div>
+    </section>
+  
+  reports: 
+    <section>
+      <h2>Relatórios de Transparência</h2>
+      <table>
+        <tr><th>Projeto</th><th>Meta</th><th>Progresso</th><th>Recursos</th></tr>
+        <tr><td>Educação</td><td>100 alunos</td><td>85%</td><td>R$ 50.000</td></tr>
+        <tr><td>Saúde</td><td>500 atendimentos</td><td>65%</td><td>R$ 30.000</td></tr>
+        <tr><td>Meio Ambiente</td><td>2.000 árvores</td><td>90%</td><td>R$ 20.000</td></tr>
+      </table>
+    </section>
+  
+  contact: 
+    <section>
+      <h2>Contato</h2>
+      <p>Email: contato@ongesperanca.org.br | Telefone: (11) 0000-0000</p>
+    </section>
+  `
+};
+
+// ===== FUNÇÕES SPA =====
+function loadPage(page) {
+  const app = document.getElementById("app");
+  app.innerHTML = templates[page] || `<section><h2>Página não encontrada</h2></section>`;
+  attachFormEvents();
+}
+
+function router() {
+  const page = location.hash.replace("#", "") || "home";
+  loadPage(page);
+}
+
+window.addEventListener("hashchange", router);
+window.addEventListener("load", router);
+
+// ===== FORMULÁRIOS =====
+function attachFormEvents() {
+  const volunteerForm = document.getElementById("volunteerForm");
+  if (volunteerForm) {
+    volunteerForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("vName").value;
+      const cpf = document.getElementById("vCpf").value;
+      const email = document.getElementById("vEmail").value;
+      const area = document.getElementById("vArea").value;
+      const volunteer = { name, cpf, email, area, date: new Date().toLocaleString() };
+      let volunteers = JSON.parse(localStorage.getItem("volunteers")) || [];
+      volunteers.push(volunteer);
+      localStorage.setItem("volunteers", JSON.stringify(volunteers));
+      document.getElementById("volunteerMessage").textContent = `Obrigado, ${name}! Você foi cadastrado como voluntário na área de ${area}.`;
+    });
+  }
+
+  const donationForm = document.getElementById("donationForm");
+  if (donationForm) {
+    donationForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("dName").value;
+      const cpf = document.getElementById("dCpf").value;
+      const email = document.getElementById("dEmail").value;
+      const amount = document.getElementById("dAmount").value;
+      const donation = { name, cpf, email, amount, date: new Date().toLocaleString() };
+      let donations = JSON.parse(localStorage.getItem("donations")) || [];
+      donations.push(donation);
+      localStorage.setItem("donations", JSON.stringify(donations));
+      document.getElementById("donationMessage").textContent = `Obrigado, ${name}! Sua doação de R$${amount} foi registrada com sucesso.`;
+    });
+  }
+}
+</script>
+</body>
+</html>
